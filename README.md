@@ -50,23 +50,24 @@ Just use the provided URL and when ready type `load "a:floh.bas"`. Could be nece
 - `V=16` is the variable that holds the difficult level. Lower the value, more hard it is. We start with i higher value here.
 - `X=14` holds the flea X position at the screen, we need to initialize here due to the fact that each level starts from a different side of the screen, so a new game always start from the left side. Also, it have a small displacement to make some space between the platform at the edges of the screeen, so the player have to be really precise when landing at them. My initial idea was to limit the movement at both sides of the screen, but this makes the game play slower and i wanted to achieve a very fast and smooth one!
 
-### `30 V=V-1:Y=0:IY=1:IX=0:CLS:C=50:DATA 60,66,165,129,165,153,66,60`
+### `30 V=V-1:Y=0:IY=1:IX=0:CLS:C=50:DATA 60,66,165,129,165,153,66,60:D=12:E=14:G=25-V`
 
 - `V=V-1` decrements the difficult level control, actually increasing it.
 - `Y=0:IY=1:IX=0` intialize Y position and both X and Y increment values. We already initialized X before and we don't do it again here, since the flow behaviour of each level... we keep last X position for each new level.
 - `CLS` just clear the screen.
 - `C=50` prepare the X position that is used inside level rendering loop at line 35. We draw the first and last platform statically, since they are relevant for the game play (they must be there and must be easy to achieve during the game play). So, we skip the first one here and start from 50.
 - `DATA 60,66,165,129,165,153,66,60` is just a smile icon bitmap in decimal notation.
+- `D=12:E=14:G=25-V` we are counting chars per line here, so we store some values for usage at line below. We need two colors and the platform spacing value. Without this, we go beyond 120 chars at the next line!
 
-### `35 S=V+RND(1)*20:L=RND(1)*50:LINE(C,150-L)-(C+S,165-L),12,BF:LINE(C+(S/2)-2,165-L)-(C+(S/2)+2,191),14,BF:C=C+S+RND(1)`
+### `35 S=V+RND(1)*20:L=RND(1)*50:LINE(C,150-L)-(C+S,165-L),D,BF:LINE(C+(S/2)-2,165-L)-(C+(S/2)+2,191),E,BF:C=C+S+G`
 
 Here we loop rendering the platforms using V to define the size of them. As we go to next levels, the size get smaller.
 
 - `S=V+RND(1)*20` define the size of the platform to be rendered, using V to control the level/size of them.
 - `L=RND(1)*50` define the height of the platform, relative to a fixed position (minimum for a good game play).
-- `LINE(C,150-L)-(C+S,165-L),12,BF` draw the box for the top part of the platform. It should have color 12 (dark green) because we check for collisions with this color to detect jumps.
-- `LINE(C+(S/2)-2,165-L)-(C+(S/2)+2,191),14,BF` draw the base of the platform. This is pure graphical appeal, we do not check for collisions with this, so we use a different color here: 14 (grey). We draw it in the middle part of the size (width) of the platform determined by S.
-- `C=C+S+RND(1)` increment the position for the next platform, using the used size plus a random value.
+- `LINE(C,150-L)-(C+S,165-L),D,BF` draw the box for the top part of the platform. It should have color 12 (dark green) because we check for collisions with this color to detect jumps. We use the stored color value, on order to save one char.
+- `LINE(C+(S/2)-2,165-L)-(C+(S/2)+2,191),E,BF` draw the base of the platform. This is pure graphical appeal, we do not check for collisions with this, so we use a different color here: 14 (grey). We draw it in the middle part of the size (width) of the platform determined by S. We use the stored value, in order to save another char (after i did it, i realize that other optimization already saved what i need... :-(
+- `C=C+S+G` increment the position for the next platform, using the size plus the level spacing pre calculated at line 30.
 
 ### `38 IF C<200 THEN 35 ELSE FOR F=10 TO 240 STEP 220:LINE(F,150)-(F+20,165),12,BF:LINE(F+8,166)-(F+12,191),14,BF:NEXT F`
 
