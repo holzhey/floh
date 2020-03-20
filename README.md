@@ -3,11 +3,11 @@ This is a game for the BASIC 10 Liner Contest 2020 based on MSX 1 platform. More
 
 ## Game info
 
-Title: Floh (flea)
-Platform: MSX
-Author: Alexandre Lehmann Holzhey
-Language: MSX-BASIC 1.0
-Category: PUR-120
+|Title|Floh (flea)|
+|Platform|MSX|
+|Author|Alexandre Lehmann Holzhey|
+|Language|MSX-BASIC 1.0|
+|Category|PUR-120|
 
 ## Files description
 
