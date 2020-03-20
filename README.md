@@ -11,10 +11,10 @@ Category: PUR-120
 
 # Files description
 
-README.md: This file, with general information about the game.
-FLOH.BAS: Source code of the game, in BASIC langauge.
-floh.png: Screenshot of the game.
-floh.dsk: Disk image with the game saved inside, for using with emulators.
+* README.md: This file, with general information about the game.
+* FLOH.BAS: Source code of the game, in BASIC langauge.
+* floh.png: Screenshot of the game.
+* floh.dsk: Disk image with the game saved inside, for using with emulators.
 
 # The game
 
@@ -30,4 +30,5 @@ There is no end, but each level will have smaller plataforms to jump. If you get
 
 # Using an emulator
 
-The game was developed on a Sharp Hotbit HB-8000 MSX 1 computer (manufactured at Brazil in 1985). You can use an emulator, i recommend the WebMSX one!! 
+The game was developed on a Sharp Hotbit HB-8000 MSX 1 computer (manufactured at Brazil in 1985). You can use an emulator, i recommend the WebMSX one: https://webmsx.org/?MACHINE=MSX1&DISK=https://github.com/holzhey/floh/raw/master/floh.dsk
+Just use the provided URL and when ready type `load "a:floh.bas"`.
