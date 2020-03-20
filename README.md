@@ -1,13 +1,17 @@
 # FLOH
+
+![Floh in game screenshot](https://github.com/holzhey/floh/raw/master/floh.png)
+
+
 This is a game for the BASIC 10 Liner Contest 2020 based on MSX 1 platform. More about the contest can be found here: https://gkanold.wixsite.com/homeputerium/kopie-von-2020
 
 ## Game info
 
-|Title|Floh (flea)|
-|Platform|MSX|
-|Author|Alexandre Lehmann Holzhey|
-|Language|MSX-BASIC 1.0|
-|Category|PUR-120|
+- Title: Floh (flea)
+- Platform: MSX
+- Author: Alexandre Lehmann Holzhey
+- Language: MSX-BASIC 1.0
+- Category: PUR-120
 
 ## Files description
 
