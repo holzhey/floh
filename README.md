@@ -35,7 +35,7 @@ There is no end, but each level will have smaller plataforms to jump. If you get
 ## Using an emulator
 
 The game was developed on a Sharp Hotbit HB-8000 MSX 1 computer (manufactured at Brazil in 1985). You can use an emulator, i recommend the WebMSX one: https://webmsx.org/?MACHINE=MSX1&DISK=https://github.com/holzhey/floh/raw/master/floh.dsk
-Just use the provided URL and when ready type `load "a:floh.bas"`. Could be necessary to enter a date in order to boot the system, in this case just press the ENTER key.
+Just use the provided URL and when ready type `load "a:floh.bas"`. Could be necessary to enter a date in order to boot the system, in this case just press the ENTER key. After loading is finished, type `run` to execute the game.
 
 ## Game logic
 
